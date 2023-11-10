@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch677vm6qnrig"]
+[gd_scene load_steps=7 format=3 uid="uid://ch677vm6qnrig"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_qsk40"]
 [ext_resource type="Texture2D" uid="uid://bwqxenrhvs4wp" path="res://Assets/PlaceholderArt/Character_placeholder.png" id="2_p8eef"]
 [ext_resource type="Texture2D" uid="uid://bxejb7xcevy8s" path="res://Assets/PlaceholderArt/SmallPlatform_placeholder.png" id="3_b8dmf"]
+[ext_resource type="Texture2D" uid="uid://bh1b78b33mg0d" path="res://Assets/PlaceholderArt/LargePlatform_placeholder.png" id="4_65gg8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw4kc"]
+size = Vector2(30, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krlvk"]
+size = Vector2(216, 29)
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,6 +20,22 @@ script = ExtResource("1_qsk40")
 position = Vector2(186, 370)
 texture = ExtResource("2_p8eef")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(187, 366)
+shape = SubResource("RectangleShape2D_tw4kc")
+
 [node name="SmallPlatformPlaceholder" type="Sprite2D" parent="."]
 position = Vector2(1044, 71)
 texture = ExtResource("3_b8dmf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(150, 600)
+scale = Vector2(2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_krlvk")
+
+[node name="LargePlatformPlaceholder" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(2, 1)
+texture = ExtResource("4_65gg8")
