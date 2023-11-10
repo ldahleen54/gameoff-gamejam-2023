@@ -1,15 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch677vm6qnrig"]
+[gd_scene load_steps=12 format=3 uid="uid://ch677vm6qnrig"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_qsk40"]
 [ext_resource type="Texture2D" uid="uid://bwqxenrhvs4wp" path="res://Assets/PlaceholderArt/Character_placeholder.png" id="2_p8eef"]
-[ext_resource type="Texture2D" uid="uid://bxejb7xcevy8s" path="res://Assets/PlaceholderArt/SmallPlatform_placeholder.png" id="3_b8dmf"]
 [ext_resource type="Texture2D" uid="uid://bh1b78b33mg0d" path="res://Assets/PlaceholderArt/LargePlatform_placeholder.png" id="4_65gg8"]
+[ext_resource type="Texture2D" uid="uid://sw0lefe04pcx" path="res://Assets/PlaceholderArt/ClosedBox_placeholder.png" id="5_j8gv0"]
+[ext_resource type="Texture2D" uid="uid://jpyf10x3meau" path="res://Assets/PlaceholderArt/OpenBox_placeholder.png" id="5_l470s"]
+[ext_resource type="Texture2D" uid="uid://df5hhxdwlrgq0" path="res://Assets/PlaceholderArt/MediumPlatform_placeholder.png" id="6_6avwi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw4kc"]
 size = Vector2(30, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krlvk"]
-size = Vector2(216, 29)
+size = Vector2(216, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmais"]
+size = Vector2(193.75, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0k5y"]
+size = Vector2(77, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xawxf"]
+size = Vector2(73, 68)
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,18 +35,48 @@ texture = ExtResource("2_p8eef")
 position = Vector2(187, 366)
 shape = SubResource("RectangleShape2D_tw4kc")
 
-[node name="SmallPlatformPlaceholder" type="Sprite2D" parent="."]
-position = Vector2(1044, 71)
-texture = ExtResource("3_b8dmf")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(150, 600)
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(439, 561)
 scale = Vector2(2, 1)
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 scale = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_krlvk")
 
-[node name="LargePlatformPlaceholder" type="Sprite2D" parent="StaticBody2D"]
+[node name="LargePlatformPlaceholder" type="Sprite2D" parent="Floor"]
 scale = Vector2(2, 1)
 texture = ExtResource("4_65gg8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(440, 533)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-4.875, -2.5)
+shape = SubResource("RectangleShape2D_vmais")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-3.75, -3)
+scale = Vector2(1.1455, 1)
+texture = ExtResource("6_6avwi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(569, 517)
+
+[node name="OpenBoxPlaceholder" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("5_l470s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -5)
+shape = SubResource("RectangleShape2D_y0k5y")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(847, 516)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-1.5, -6)
+shape = SubResource("RectangleShape2D_xawxf")
+
+[node name="ClosedBoxPlaceholder" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("5_j8gv0")
