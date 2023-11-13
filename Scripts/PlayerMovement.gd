@@ -26,5 +26,6 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	# this will probably need to change once we add ramps since the player will have a y velocity
 	if is_on_floor():
 		velocity.y = 0
