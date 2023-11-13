@@ -35,6 +35,11 @@ texture = ExtResource("2_p8eef")
 position = Vector2(187, 366)
 shape = SubResource("RectangleShape2D_tw4kc")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(187, 368)
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(439, 561)
 scale = Vector2(2, 1)
@@ -72,7 +77,8 @@ position = Vector2(0.5, -5)
 shape = SubResource("RectangleShape2D_y0k5y")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(847, 516)
+position = Vector2(1701, 516)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(-1.5, -6)
@@ -80,3 +86,16 @@ shape = SubResource("RectangleShape2D_xawxf")
 
 [node name="ClosedBoxPlaceholder" type="Sprite2D" parent="StaticBody2D3"]
 texture = ExtResource("5_j8gv0")
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(1303, 561)
+scale = Vector2(2, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_krlvk")
+
+[node name="LargePlatformPlaceholder" type="Sprite2D" parent="Floor2"]
+scale = Vector2(2, 1)
+texture = ExtResource("4_65gg8")
